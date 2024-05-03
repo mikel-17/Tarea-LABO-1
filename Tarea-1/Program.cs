@@ -1,202 +1,428 @@
-﻿#1) Realiza la suma, resta, multiplicación y división de dos números ingresados por el usuario.
-N1 = float(input('ingrse el primer número: '))
-N2 = float(input('ingrese el segundo número: '))
+﻿//Operaciones Básicas:
+//1) Realiza la suma, resta, multiplicación y división de dos números ingresados por el usuario.
 
-Suma = N1 * N2
-Resta = N1 + N2
-Multiplicacion = N1 - N2
+using System;
 
-if N2 != 0:
-    Division = N1 / N2
-else:
-    Division = "No se puede dividir por cero"
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.Write("Ingrese el primer número: ");
+        double N1 = Convert.ToDouble(Console.ReadLine());
 
+        Console.Write("Ingrese el segundo número: ");
+        double N2 = Convert.ToDouble(Console.ReadLine());
 
-print('Suma:', Suma)
-print("Resta: ", Resta)
-print('Multiplicacion:', Multiplicacion)
-print('Division:', Division)
+        double Suma = N1 * N2;
+        double Resta = N1 + N2;
+        double Multiplicacion = N1 - N2;
+        object Division;
 
-#Verificación de Número Par o Impar:
-#2) Solicita un número al usuario y determina si es par o impar.
-Numero = int(input("Ingrese un numero: "))
+        if (N2 != 0)
+        {
+            Division = N1 / N2;
+        }
+        else
+        {
+            Division = "No se puede dividir por cero";
+        }
 
-if Numero % 2 == 0:
-    print("Si el numero ", Numero, " es par: ")
+        Console.WriteLine("Suma: " + Suma);
+        Console.WriteLine("Resta: " + Resta);
+        Console.WriteLine("Multiplicacion: " + Multiplicacion);
+        Console.WriteLine("Division: " + Division);
+    }
+}
+
+
+//Verificación de Número Par o Impar:
+//2) Solicita un número al usuario y determina si es par o impar.
+
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.Write("Ingrese un número: ");
+        int num = int.Parse(Console.ReadLine());
+
+        int fact = 1;
+
+        for (int i = 1; i <= num; i++)
+        {
+            fact *= i;
+        }
+
+        Console.WriteLine($"El factorial de {num} es: {fact}");
+    }
+}
+
+//Área de un Triángulo:
+//3) Pide la base y la altura de un triángulo al usuario y calcula su área.
+
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.Write("Ingrese la base del triángulo: ");
+        int baseTriangulo = int.Parse(Console.ReadLine());
+
+        Console.Write("Ingrese la altura del triángulo: ");
+        int alturaTriangulo = int.Parse(Console.ReadLine());
+
+        double area = (baseTriangulo * alturaTriangulo) / 2.0;
 
+        Console.WriteLine("El área del triángulo es: " + area);
+    }
+}
+
+
+//Calculadora de Factorial:
+//4) Crea una función que calcule la factorial de un número.
+
+
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.Write("Ingrese un número: ");
+        int num = int.Parse(Console.ReadLine());
+
+        int fact = 1;
+
+        for (int i = 1; i <= num; i++)
+        {
+            fact *= i;
+        }
+
+        Console.WriteLine($"El factorial de {num} es: {fact}");
+    }
+}
+
+//Número Primo:
+//5) Verifica si un número ingresado por el usuario es primo o no.
+
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.Write("Ingrese un número: ");
+        int numero = int.Parse(Console.ReadLine());
+
+        bool esPrimo = true;
+
+        if (numero <= 1)
+        {
+            esPrimo = false;
+        }
+        else
+        {
+            for (int i = 2; i < numero; i++)
+            {
+                if (numero % i == 0)
+                {
+                    esPrimo = false;
+                    break;
+                }
+            }
+        }
+
+        if (esPrimo)
+        {
+            Console.WriteLine($"{numero} es un número primo.");
+        }
+        else
+        {
+            Console.WriteLine($"{numero} no es un número primo.");
+        }
+    }
+}
+
+
+//Inversión de Cadena:
+//6) Toma una cadena de texto y muestra su inversión.
+
+using System;
 
-else:
-    print("Si el numero ", Numero, " es impar: ")
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.Write("Ingrese una cadena de texto: ");
+        string cadena = Console.ReadLine();
+
+        char[] caracteres = cadena.ToCharArray();
+        Array.Reverse(caracteres);
+
+        string cadenaInvertida = new string(caracteres);
 
+        Console.WriteLine("La cadena invertida es: " + cadenaInvertida);
+    }
+}
+
+
+//Suma de Números Pares:
+//7) Calcula la suma de los números pares en un rango especificado por el usuario.
 
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.Write("Ingresar numero inicial: ");
+        int num1 = int.Parse(Console.ReadLine());
 
-# Área de un Triángulo:
-#3) Pide la base y la altura de un triángulo al usuario y calcula su área.
-base = int(input("Ingrese la base del triangulo: "))
-altura = int(input("Ingrese la altura del triangulo: "))
+        Console.Write("Ingresar un numero final: ");
+        int num2 = int.Parse(Console.ReadLine());
 
-area = base * altura / 2
+        int suma = 0;
+        int i = num1;
 
-print("Area del triangulo es: ", area)
+        while (i <= num2)
+        {
+            if (i % 2 == 0)
+            {
+                suma += i;
+            }
+            i++;
+        }
 
-#Calculadora de Factorial:
-#4) Crea una función que calcule la factorial de un número.
-Num = int(input("Ingrese un numero: "))
+        Console.WriteLine("La suma de los números pares en el rango especificado es: " + suma);
+    }
+}
 
-fact = 1
+
+//Lista de Cuadrados:
+//8) Crea una lista de los cuadrados de los primeros 10 números naturales.
 
-for i in range(1, Num + 1):
-    fact *= i
 
+using System;
+using System.Collections.Generic;
 
-print("Factorial de ", Num, " es: ", fact)
+class Program
+{
+    static List<int> GeneraCuadrados(int n)
+    {
+        List<int> cuadrados = new List<int>();
 
-#Número Primo:
-#5) Verifica si un número ingresado por el usuario es primo o no.
+        for (int i = 1; i <= n; i++)
+        {
+            cuadrados.Add(i * i);
+        }
 
-numero = int(input("Ingrese un numero: "))
+        return cuadrados;
+    }
 
-es_primo = True
+    static void Main(string[] args)
+    {
+        List<int> resultados = GeneraCuadrados(10);
 
+        Console.Write("El cuadrado de los primeros 10 números: ");
+        foreach (int resultado in resultados)
+        {
+            Console.Write(resultado + " ");
+        }
+        Console.WriteLine();
+    }
+}
 
-if numero <= 1:
-    es_primo = False
-else:
-    for i in range(2, numero):
-        if numero % i == 0:
-            es_primo = False
-            break
 
-if es_primo:
-    print(f"{numero} es un numero primo.")
-else:
-    print(f"{numero} no es un numero primo.")
+//Contador de Vocales:
+//9) Cuenta el número de vocales en una cadena de texto.
 
-#Inversión de Cadena:
-#6) Toma una cadena de texto y muestra su inversión.
-cadena = input("Ingrese una cadena de texto: ")
 
-cadena_invertida = cadena[::- 1]
+using System;
 
-print("La cadena invertida es:", cadena_invertida)
+class Program
+{
+    static int ContarVocales(string cadena)
+    {
+        cadena = cadena.ToLower();
 
-#Suma de Números Pares:
-#7) Calcula la suma de los números pares en un rango especificado por el usuario.
-num1 = int(input("Ingresar numero inicial: "))
-num2 = int(input("Ingresar un numero final: "))
+        string vocales = "aeiou";
 
-suma = 0
-i = num1
+        int contador = 0;
 
-while i <= num2:  
-    if i % 2 == 0: 
-        suma += i
-    i += 1
+        foreach (char caracter in cadena)
+        {
+            if (vocales.Contains(caracter))
+            {
+                contador++;
+            }
+        }
 
-print("La suma de los números pares en el rango especificado es:", suma)
+        return contador;
+    }
 
-#Lista de Cuadrados:
-#8) Crea una lista de los cuadrados de los primeros 10 números naturales.
-def genera_cuadrados(n):
-    cuadrados = []
+    static void Main(string[] args)
+    {
+        Console.Write("Ingrese una cadena de texto: ");
+        string cadena = Console.ReadLine();
 
+        int numVocales = ContarVocales(cadena);
 
-    for i in range(1, n + 1):  
-        cuadrados.append(i * *2)
+        Console.WriteLine("El número de vocales en la cadena es: " + numVocales);
+    }
+}
 
 
-    return cuadrados
+//Números de la Serie Fibonacci:
+//10) Genera los primeros 10 números de la serie Fibonacci.
 
-resultados = genera_cuadrados(10)
 
-print("El cuadrado de la 10 primeros numeros: ", resultados)
+using System;
 
-#Contador de Vocales:
-#9) Cuenta el número de vocales en una cadena de texto.
-def contar_vocales(cadena):
-  
-    cadena = cadena.lower()
+class Program
+{
+    static void Main(string[] args)
+    {
+        int[] fibonacci = new int[] { 0, 1 };
 
+        for (int i = 2; i < 10; i++)
+        {
+            int siguienteNumero = fibonacci[i - 1] + fibonacci[i - 2];
+            Array.Resize(ref fibonacci, fibonacci.Length + 1);
+            fibonacci[i] = siguienteNumero;
+        }
 
-    vocales = "aeiou"
+        Console.Write("Los primeros 10 números de la serie de Fibonacci son: ");
+        foreach (int num in fibonacci)
+        {
+            Console.Write(num + " ");
+        }
+        Console.WriteLine();
+    }
+}
 
 
-    contador = 0
+//Ordenamiento de Lista:
+//11) Ordena una lista de números ingresados por el usuario de menor a mayor.
 
 
-    for caracter in cadena:
+using System;
+using System.Linq;
 
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.Write("Ingrese una lista de números separados por espacios: ");
+        string input = Console.ReadLine();
 
-        if caracter in vocales:
-contador += 1
+        double[] numeros = input.Split(' ').Select(double.Parse).ToArray();
 
+        Array.Sort(numeros);
 
-    return contador
+        Console.WriteLine("Lista de números ordenada de menor a mayor: " + string.Join(" ", numeros));
+    }
+}
 
-cadena = input("Ingrese una cadena de texto: ")
 
-num_vocales = contar_vocales(cadena)
 
-print("El número de vocales en la cadena es:", num_vocales)
+//Palíndromo:
+//12) Verifica si una palabra ingresada por el usuario es un palíndromo.
 
-#Números de la Serie Fibonacci:
-#10) Genera los primeros 10 números de la serie Fibonacci.
-fibonacci = [0, 1]
+using System;
 
-for i in range(2, 10):
-    siguiente_numero = fibonacci[i - 1] + fibonacci[i - 2]
-    fibonacci.append(siguiente_numero)
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.Write("Ingrese una palabra: ");
+        string palabra = Console.ReadLine().ToLower();
 
-print("Los primeros 10 números de la serie de Fibonacci son:", fibonacci)
+        bool esPalindromo = true;
 
-#Ordenamiento de Lista:
-#11) Ordena una lista de números ingresados por el usuario de menor a mayor.
-numeros = input("Ingrese una lista de numeros separados por espacios: ")
+        for (int i = 0; i < palabra.Length / 2; i++)
+        {
+            if (palabra[i] != palabra[palabra.Length - i - 1])
+            {
+                esPalindromo = false;
+                break;
+            }
+        }
 
-numeros = [float(numero) for numero in numeros.split()]
+        if (esPalindromo)
+        {
+            Console.WriteLine("La palabra ingresada es un palíndromo.");
+        }
+        else
+        {
+            Console.WriteLine("La palabra ingresada no es un palíndromo.");
+        }
+    }
+}
 
-numeros_ordenados = sorted(numeros)
 
-print("Lista de numeros ordenada de menor a mayor:", numeros_ordenados)
+//Generador de Tablas de Multiplicar:
+//13) Crea un programa que genere la tabla de multiplicar de un número ingresado por el usuario.
 
-#Palíndromo:
-#12) Verifica si una palabra ingresada por el usuario es un palíndromo.
-palabra = input("Ingrese una palabra: ")
+using System;
 
-palabra = palabra.lower()
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.Write("Ingrese un número para generar la tabla de multiplicar: ");
+        int numero = int.Parse(Console.ReadLine());
 
-if palabra == palabra[::- 1]:
-    print("La palabra ingresada es un palíndromo.")
-else:
-    print("La palabra ingresada no es un palíndromo.")
+        Console.WriteLine($"Tabla de multiplicar del {numero}:");
 
-#Generador de Tablas de Multiplicar:
-#13) Crea un programa que genere la tabla de multiplicar de un número ingresado por el usuario.
-numero = int(input("Ingrese un numero para generar la tabla de multiplicar: "))
+        for (int i = 1; i <= 10; i++)
+        {
+            int resultado = numero * i;
+            Console.WriteLine($"{numero} x {i} = {resultado}");
+        }
+    }
+}
 
-print(f"Tabla de multiplicar del {numero}:")
 
-for i in range(1, 11):
-    resultado = numero * i
-    print(f"{numero} x {i} = {resultado}")
+//Cálculo del Área de un Círculo:
+//14) Pide el radio de un círculo al usuario y calcula su área.
 
-#Cálculo del Área de un Círculo:
-#14) Pide el radio de un círculo al usuario y calcula su área.
-radio = float(input("Ingrese el radio del ci­rculo: "))
+using System;
 
-area = 3.14159 * radio * *2
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.Write("Ingrese el radio del círculo: ");
+        double radio = double.Parse(Console.ReadLine());
 
-print("El Ã¡rea del cÃ­rculo con radio", radio, "es:", area)
+        double area = Math.PI * Math.Pow(radio, 2);
 
-#Suma de Dígitos:
-#15) Toma un número entero y calcula la suma de sus dígitos.
-numero = int(input("Ingrese un numero entero: "))
+        Console.WriteLine($"El área del círculo con radio {radio} es: {area}");
+    }
+}
 
-suma_digitos = 0
 
-while numero > 0:
-    suma_digitos += numero % 10
-    numero //= 10 
+//15) Toma un número entero y calcula la suma de sus dígitos.
 
-print("La suma de los digitos del numero es:", suma_digitos)
+using System;
 
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.Write("Ingrese un número entero: ");
+        int numero = int.Parse(Console.ReadLine());
+
+        int sumaDigitos = 0;
+
+        while (numero > 0)
+        {
+            sumaDigitos += numero % 10;
+            numero /= 10;
+        }
+
+        Console.WriteLine("La suma de los dígitos del número es: " + sumaDigitos);
+    }
+}
